@@ -1,0 +1,17 @@
+{
+  "name": "wormhole-solidity-sdk",
+  "version": "1.0.0-alpha.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No test needed in this wrapper\"",
+    "prepublishOnly": "echo 'Error: Please run 'bin/publish.sh' to publish.' && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndujaLabs/wormhole-solidity-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0"
+}
