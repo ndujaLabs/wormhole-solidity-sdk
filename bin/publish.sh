@@ -26,14 +26,7 @@ if [[ $version == "" ]]; then
   exit 1
 fi
 
-if [[ -d "contracts" ]]; then
-  rm -rf contracts/*
-else
-  mkdir contracts
-fi
-cp -r wormhole-solidity-sdk/src/* contracts/.
-cp README.md contracts/.
-cp scripts/package.json contracts/.
+./build.sh
 
 node scripts/verify-package-json-in-sync.js
 

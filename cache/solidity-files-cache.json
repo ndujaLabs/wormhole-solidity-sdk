@@ -1,0 +1,864 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/Base.sol": {
+      "lastModificationDate": 1709423556890,
+      "contentHash": "ab5736aff1909ddbd584049679d7af6c",
+      "sourceName": "contracts/Base.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWormholeReceiver.sol",
+        "./interfaces/IWormholeRelayer.sol",
+        "./interfaces/IWormhole.sol",
+        "./Utils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "Base"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/IWormholeReceiver.sol": {
+      "lastModificationDate": 1709423556897,
+      "contentHash": "e8f343bf4f096fbe525be185cdc1667a",
+      "sourceName": "contracts/interfaces/IWormholeReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IWormholeReceiver"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/IWormholeRelayer.sol": {
+      "lastModificationDate": 1709423556896,
+      "contentHash": "1468502f4b113058fc8c68f4ebe45ca9",
+      "sourceName": "contracts/interfaces/IWormholeRelayer.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IWormholeRelayer",
+        "IWormholeRelayerBase",
+        "IWormholeRelayerDelivery",
+        "IWormholeRelayerSend"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/IWormhole.sol": {
+      "lastModificationDate": 1709423556893,
+      "contentHash": "17bcb8ab1190b494435234940d3f7ba3",
+      "sourceName": "contracts/interfaces/IWormhole.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IWormhole"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/Utils.sol": {
+      "lastModificationDate": 1709423556892,
+      "contentHash": "49b4a56dc0c38ac06bbcb01500506c0c",
+      "sourceName": "contracts/Utils.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWormholeRelayer.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": []
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/WormholeRelayerSDK.sol": {
+      "lastModificationDate": 1709423556893,
+      "contentHash": "5ff0d0e6776361ebbf0920686728123a",
+      "sourceName": "contracts/WormholeRelayerSDK.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWormholeReceiver.sol",
+        "./interfaces/IWormholeRelayer.sol",
+        "./Chains.sol",
+        "./Utils.sol",
+        "./Base.sol",
+        "./TokenBase.sol",
+        "./CCTPBase.sol",
+        "./CCTPAndTokenBase.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": []
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/Chains.sol": {
+      "lastModificationDate": 1709423556892,
+      "contentHash": "c64f2de487466b9bd38f7c92894d4252",
+      "sourceName": "contracts/Chains.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": []
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/TokenBase.sol": {
+      "lastModificationDate": 1709423556892,
+      "contentHash": "38de7fba71608b00c9a0d28c459f510e",
+      "sourceName": "contracts/TokenBase.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWormholeReceiver.sol",
+        "./interfaces/IWormholeRelayer.sol",
+        "./interfaces/ITokenBridge.sol",
+        "./interfaces/IERC20.sol",
+        "./WormholeRelayerSDK.sol",
+        "./Utils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "TokenBase",
+        "TokenReceiver",
+        "TokenSender"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/CCTPBase.sol": {
+      "lastModificationDate": 1709423556891,
+      "contentHash": "318ca115a0b4fc7ad3e77e8fa644fde6",
+      "sourceName": "contracts/CCTPBase.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWormholeReceiver.sol",
+        "./interfaces/IWormholeRelayer.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/CCTPInterfaces/ITokenMessenger.sol",
+        "./interfaces/CCTPInterfaces/IMessageTransmitter.sol",
+        "./Utils.sol",
+        "./Base.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "CCTPBase",
+        "CCTPMessageLib",
+        "CCTPReceiver",
+        "CCTPSender"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/CCTPAndTokenBase.sol": {
+      "lastModificationDate": 1709423556891,
+      "contentHash": "22f85561acd3c89bb3f0eb5c4e2e64a4",
+      "sourceName": "contracts/CCTPAndTokenBase.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWormholeReceiver.sol",
+        "./interfaces/IWormholeRelayer.sol",
+        "./interfaces/ITokenBridge.sol",
+        "./interfaces/IERC20.sol",
+        "./interfaces/CCTPInterfaces/ITokenMessenger.sol",
+        "./interfaces/CCTPInterfaces/IMessageTransmitter.sol",
+        "./Utils.sol",
+        "./TokenBase.sol",
+        "./CCTPBase.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "CCTPAndTokenBase",
+        "CCTPAndTokenReceiver",
+        "CCTPAndTokenSender"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/ITokenBridge.sol": {
+      "lastModificationDate": 1709423556894,
+      "contentHash": "effdc02941abf3d3e90d2e4c3e5fa6b5",
+      "sourceName": "contracts/interfaces/ITokenBridge.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IWETH.sol",
+        "./IWormhole.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ITokenBridge"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1709423556893,
+      "contentHash": "d3f395dc838796643e7a71419900ab23",
+      "sourceName": "contracts/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/IWETH.sol": {
+      "lastModificationDate": 1709423556894,
+      "contentHash": "90020aa00c69797588ffd23484bab40b",
+      "sourceName": "contracts/interfaces/IWETH.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IWETH"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/CCTPInterfaces/IMessageTransmitter.sol": {
+      "lastModificationDate": 1709423556944,
+      "contentHash": "f965020561a09c664131a8ec28db9cce",
+      "sourceName": "contracts/interfaces/CCTPInterfaces/IMessageTransmitter.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IRelayer.sol",
+        "./IReceiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IMessageTransmitter"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/CCTPInterfaces/ITokenMessenger.sol": {
+      "lastModificationDate": 1709423556944,
+      "contentHash": "e4979f3ba3d81eb7bf1dc9843358f97c",
+      "sourceName": "contracts/interfaces/CCTPInterfaces/ITokenMessenger.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ITokenMessenger"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/CCTPInterfaces/IRelayer.sol": {
+      "lastModificationDate": 1709423556944,
+      "contentHash": "25e16f679232f95590e76d63a0c707dd",
+      "sourceName": "contracts/interfaces/CCTPInterfaces/IRelayer.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IRelayer"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/interfaces/CCTPInterfaces/IReceiver.sol": {
+      "lastModificationDate": 1709423556944,
+      "contentHash": "29323cc4f7936f6e00b56645ed974903",
+      "sourceName": "contracts/interfaces/CCTPInterfaces/IReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IReceiver"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/extensions/HelloWormholeProtections.sol": {
+      "lastModificationDate": 1709423556911,
+      "contentHash": "5c39cd12f7af392370a3533551779570",
+      "sourceName": "contracts/extensions/HelloWormholeProtections.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IWormholeRelayer.sol",
+        "../interfaces/IWormholeReceiver.sol",
+        "../WormholeRelayerSDK.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "HelloWormholeProtections"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/extensions/HelloWormholeRefunds.sol": {
+      "lastModificationDate": 1709423556912,
+      "contentHash": "1a61e5dd1d3b4f5e259a516a160b7abd",
+      "sourceName": "contracts/extensions/HelloWormholeRefunds.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IWormholeRelayer.sol",
+        "../interfaces/IWormholeReceiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "HelloWormholeRefunds"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/extensions/HelloWormholeConfirmation.sol": {
+      "lastModificationDate": 1709423556912,
+      "contentHash": "cf11d1941acf1394e0fab0110d9b9a04",
+      "sourceName": "contracts/extensions/HelloWormholeConfirmation.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IWormholeRelayer.sol",
+        "../interfaces/IWormholeReceiver.sol",
+        "../WormholeRelayerSDK.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "HelloWormholeConfirmation"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/HelloWormhole.sol": {
+      "lastModificationDate": 1709423556911,
+      "contentHash": "452186a8f4bfa3dc0cd2ecec5fbc56db",
+      "sourceName": "contracts/HelloWormhole.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWormholeRelayer.sol",
+        "./interfaces/IWormholeReceiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "HelloWormhole"
+      ]
+    },
+    "/Users/francescosullo/Projects/ndujaLabs/wormhole-solidity-sdk/contracts/libraries/BytesParsing.sol": {
+      "lastModificationDate": 1709423556897,
+      "contentHash": "31b58a7d020b0243b217efe13d6c6d71",
+      "sourceName": "contracts/libraries/BytesParsing.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.13"
+      ],
+      "artifacts": [
+        "BytesParsing"
+      ]
+    }
+  }
+}
