@@ -16,4 +16,4 @@ rm -r contracts/testing
 cp README.md contracts/.
 cp scripts/package.json contracts/.
 
-node scripts/fix-solidity-warnings.js
+node scripts/fix-solidity-warnings.js $1

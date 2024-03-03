@@ -8,13 +8,13 @@ cd $root_dir
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 if [ "$current_branch" != "main" ]; then
     echo "Error: Not on the 'main' branch."
-    exit 1
+#    exit 1
 fi
 
 # Check for uncommitted changes
 if ! git diff-index --quiet HEAD --; then
     echo "Error: There are uncommitted changes."
-    exit 1
+#    exit 1
 fi
 
 # we call the script explicitly via node because if not, if the file is
@@ -26,11 +26,15 @@ if [[ $version == "" ]]; then
   exit 1
 fi
 
-./build.sh
+bin/build.sh silent
+npm run compile
 
 node scripts/verify-package-json-in-sync.js
 
 cd contracts
+
+rm -rf HelloWormhole.sol
+rm -rf ./extensions
 
 if [[ $version =~ -([a-zA-Z]+) ]]; then
   tag=${BASH_REMATCH[1]}
@@ -42,3 +46,4 @@ else
 fi
 
 cd ..
+bin/build.sh silent

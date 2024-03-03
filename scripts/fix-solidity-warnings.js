@@ -4,6 +4,8 @@ const path = require('path');
 const contractsDir = path.join(__dirname, '../contracts');
 const licenseIdentifier = '// SPDX-License-Identifier: Apache-2.0\n';
 
+const [,,silent] = process.argv;
+
 function addLicenseToSolFiles(dirPath) {
     fs.readdir(dirPath, { withFileTypes: true }, (err, entries) => {
         if (err) {
@@ -23,15 +25,20 @@ function addLicenseToSolFiles(dirPath) {
                         console.error(`Error reading file ${entry.name}:`, err);
                         return;
                     }
-
+                    let updatedContent = undefined;
+                    if (entry.name === "TokenBase.sol") {
+                        updatedContent = data.replace(/import \{Base\} from "\.\/WormholeRelayerSDK\.sol"/, "import \"./Base.sol\"");
+                    }
                     if (!/SPDX-License-Identifier/.test(data)) {
-                        const updatedContent = licenseIdentifier + data;
+                        updatedContent = licenseIdentifier + data;
+                    }
+                    if (updatedContent) {
                         fs.writeFile(entryPath, updatedContent, 'utf8', (err) => {
                             if (err) {
                                 console.error(`Error writing file ${entry.name}:`, err);
                                 return;
                             }
-                            console.log(`License identifier added to ${entry.name}`);
+                            if (!silent) console.log(`Fixing ${entry.name}`);
                         });
                     }
                 });

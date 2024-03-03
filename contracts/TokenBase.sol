@@ -5,7 +5,7 @@ import "./interfaces/IWormholeReceiver.sol";
 import "./interfaces/IWormholeRelayer.sol";
 import "./interfaces/ITokenBridge.sol";
 import {IERC20} from "./interfaces/IERC20.sol";
-import {Base} from "./WormholeRelayerSDK.sol";
+import "./Base.sol";
 
 import "./Utils.sol";
 
