@@ -27,6 +27,9 @@ if [[ $version == "" ]]; then
 fi
 
 bin/build.sh silent
+
+# let's be sure that it compiles without errors
+npm run clean
 npm run compile
 
 node scripts/verify-package-json-in-sync.js
