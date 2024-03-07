@@ -1,11 +1,22 @@
-# Wormhole Solidity SDK for Hardhat
+# Wormhole Solidity SDK
 
-The purpose of this SDK is to provide helpers to take your existing single-chain solidity application cross-chain using Wormhole's automatic relayers.
+
+---
+
+### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [2b7d...e8ea](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/2b7db51f99b49eda99b44f4a044e751cb0b2e8ea)._
+
+---
+
+
+
+The purpose of this SDK is to provide helpers to take your existing single-chain solidity application cross-chain using Wormhole's automatic relayers
 
 ### Installation
 
+**Foundry and Forge**
+
 ```bash
-npm install wormhole-solidity-sdk
+forge install wormhole-foundation/wormhole-solidity-sdk
 ```
 
 ### Example Usage + Introduction to Automatic Relayers
@@ -26,31 +37,10 @@ npm install wormhole-solidity-sdk
     - [`setRegisteredSender(uint16 sourceChain, bytes32 sourceAddress)`](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/Base.sol#L47): Setting the specified sender for ‘sourceChain’ to be ‘sourceAddress’
     - [`isRegisteredSender(uint16 sourceChain, bytes32 sourceAddress)`](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/Base.sol#L35): Checking that the sender who requested the delivery is the registered address for that chain
     
-    Look at test/Counter.t.sol for an example usage of Base~~~~
+    Look at test/Counter.t.sol for an example usage of Base
     
 - Included are also the ‘[TokenSender](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/TokenBase#L36)’ and ‘[TokenReceiver](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/TokenBase.sol#L126)’ base classes with helpers for smart contracts that wish to send and receive tokens using Wormhole’s TokenBridge. See ‘[HelloToken](https://github.com/wormhole-foundation/hello-token)’ for example usage.
 - Included are also the ‘[CCTPSender](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/CCTPBase#L70)’ and ‘[CCTPReceiver](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/CCTPBase.sol#L134)’ base classes with helpers for smart contracts that wish to send and receive both tokens using Wormhole’s TokenBridge as well as USDC using CCTP. See ‘[HelloUSDC](https://github.com/wormhole-foundation/hello-usdc)’ for example usage.
 - Included are helpers that help set up a local forge testing environment. See ‘[HelloWormhole](https://github.com/wormhole-foundation/hello-wormhole)’ for example usage.
 
 **Note: This code is meant to be used as starter / reference code. Feel free to modify for use in your contracts, and also make sure to audit any code used from here as part of your contracts before deploying to mainnet.**
-
-
-### License
-
-Copyright 2022 Wormhole Project Contributors
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-### Note
-
-This version for Hardhat has been set up by [ndujaLabs](https://ndujalabs.com) to work with Hardhat. It uses the original SDK as a submodule, so that it can be easily updated to the latest version.

@@ -13,7 +13,10 @@ fi
 cp -r wormhole-solidity-sdk/src/* contracts/.
 cp -r hello-wormhole-contracts/* contracts/.
 rm -r contracts/testing
-cp README.md contracts/.
+
+cp wormhole-solidity-sdk/README.md contracts/.
+node scripts/fix-readme.js
+cp contracts/README.md .
 cp scripts/package.json contracts/.
 
 node scripts/fix-solidity-warnings.js $1
