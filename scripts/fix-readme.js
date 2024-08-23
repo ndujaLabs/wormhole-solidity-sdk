@@ -13,7 +13,8 @@ const readmePath = path.join(__dirname, '../contracts/README.md');
 
 let readmeContent = fs.readFileSync(readmePath, 'utf8').split("\n");
 
-let insertText = `\n\n### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [${ellipsiseGitHash(hash)}](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/${hash})._\n\n---\n\n`;
+let insertText = `\n\n### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [${ellipsiseGitHash(hash)}](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/${hash}).  
+All version increase as 0.x.0, as if they potentially break changes because this repo does not verify if that happens._\n\n---\n\n`;
 
 readmeContent.splice(1, 0, insertText);
 let updatedReadmeContent = readmeContent.join("\n");
