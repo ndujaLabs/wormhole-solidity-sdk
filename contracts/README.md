@@ -1,7 +1,7 @@
 # Wormhole Solidity SDK
 
 
-### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [+020...df2d](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/+020d9f654f1d417c45b5ac3ee4c3b5a244bcdf2d).  
+### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [020d...df2d](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/020d9f654f1d417c45b5ac3ee4c3b5a244bcdf2d).  
 All version increase as 0.x.0, as if they potentially break changes because this repo does not verify if that happens._
 
 ---
