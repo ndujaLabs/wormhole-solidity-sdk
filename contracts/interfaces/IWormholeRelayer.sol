@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import {NotAnEvmAddress} from "wormhole-sdk/Utils.sol";
+import {NotAnEvmAddress} from "../Utils.sol";
 
 /**
  * @title WormholeRelayer
