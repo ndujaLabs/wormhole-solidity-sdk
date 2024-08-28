@@ -30,5 +30,6 @@ cp scripts/package.json contracts/.
 
 node scripts/fix-solidity-warnings.js $1
 
+npm run clean
 npx hardhat compile
 
