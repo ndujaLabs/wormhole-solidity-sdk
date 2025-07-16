@@ -1,5 +1,8 @@
 # Wormhole Solidity SDK
 
+## This package is not the official one and is now deprecated because, finally, Wormhole Foundation, used our [PR](https://github.com/wormhole-foundation/wormhole-solidity-sdk/pull/68) to incorporate it into the official SDK and make the DSK Hardhat-compatible.
+
+
 
 ### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [+847...2229](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/+847c82387594e78731b8853de961986cf7f82229).  
 All version increase as 0.x.0, as if they potentially break changes because this repo does not verify if that happens._
