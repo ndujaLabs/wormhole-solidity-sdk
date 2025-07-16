@@ -1,6 +1,6 @@
 # Wormhole Solidity SDK
 
-## This package is not the official one and is now deprecated because, finally, Wormhole Foundation, used our [PR](https://github.com/wormhole-foundation/wormhole-solidity-sdk/pull/68) to incorporate it into the official SDK and make the SDK Hardhat-compatible.
+## This package is not the official one and is now deprecated because, finally, Wormhole Foundation, used our [PR](https://github.com/wormhole-foundation/wormhole-solidity-sdk/pull/68) to incorporate it into the official SDK and made the SDK Hardhat-compatible.
 
 
 
