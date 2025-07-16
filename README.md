@@ -1,7 +1,7 @@
 # Wormhole Solidity SDK
 
 
-### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [+d9a...7d3f](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/+d9a9574d85311f12a19acda3f377cda3f6687d3f).  
+### _This version of the Wormhole Solidity SDK, configured by [ndujaLabs](https://ndujalabs.com) for Hardhat compatibility, incorporates the original SDK as a submodule. It aligns with commit [+847...2229](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/+847c82387594e78731b8853de961986cf7f82229).  
 All version increase as 0.x.0, as if they potentially break changes because this repo does not verify if that happens._
 
 ---
@@ -34,46 +34,35 @@ The `main` branch is considered the nightly version of the SDK. Stick to tagged 
 forge install wormhole-foundation/wormhole-solidity-sdk@v0.1.0
 ```
 
-**Solc Version**
+**EVM Version**
 
-Currently the SDK uses solc version 0.8.19 to avoid issues with PUSH0 which was introduced in 0.8.20 but which is not supported on many EVM chains.
+One hazard of developing EVM contracts in a cross-chain environment is that different chains have varying levels of "EVM-equivalence". This means you have to ensure that all chains that you are planning to deploy to support all EIPs/opcodes that you rely on.
 
-## WormholeRelayer
+For example, if you are using a solc version newer than `0.8.19` and are planning to deploy to a chain that does not support [PUSH0 opcode](https://eips.ethereum.org/EIPS/eip-3855) (introduced as part of the Shanghai hardfork), you should set `evm_version = "paris"` in your `foundry.toml`, since the default EVM version of solc was advanced from Paris to Shanghai as part of solc's `0.8.20` release.
 
-### Introduction
+**Testing**
 
-The WormholeRelayer (also sometimes referred to as the automatic or generic relayer) allows integrators to leverage external parties known as delivery providers, to relay messages emitted on a given source chain to the intended target chain.
+It is strongly recommended that you run the forge test suite of this SDK with your own compiler version to catch potential errors that stem from differences in compiler versions early. Yes, strictly speaking the Solidity version pragma should prevent these issues, but better to be safe than sorry, especially given that some components make extensive use of inline assembly.
 
-This frees integrators, who are building a cross-chain app, from the cumbersome and painful task of having to run relaying infrastructure themselves (and thus e.g. dealing with the headache of having to acquire gas tokens for the target chain).
+**IERC20 Remapping**
 
-Messages include, but aren't limited to: Wormhole attestations (VAAs), Circle attestations (CCTP)
+This SDK comes with its own IERC20 interface. Given that projects tend to combine different SDKs, there's often this annoying issue of clashes of IERC20 interfaces, even though the are effectively the same. We handle this issue by importing `IERC20/IERC20.sol` which allows remapping the `IERC20/` prefix to whatever directory contains `IERC20.sol` in your project, thus providing an override mechanism that should allow dealing with this problem seamlessly until forge allows remapping of individual files.
 
-Delivery providers provide a quote for the cost of a delivery on the source chain and also take payment there. This means the process is not fully trustless (delivery providers can take payment and then fail to perform the delivery), however the state of the respective chains always makes it clear whether a delivery provider has done their duty for a given delivery and delivery providers can't maliciously manipulate the content of a delivery.
+## Components
 
-### Example Usage
+For additional documentation of components, see the docs directory.
 
-[HelloWormhole - Simple cross-chain message sending application](https://github.com/wormhole-foundation/hello-wormhole)
+## Philosophy/Creeds
 
-[HelloToken - Simple cross-chain token sending application](https://github.com/wormhole-foundation/hello-token)
+In This House We Believe:
+* clarity breeds security
+* Do NOT trust in the Lord (i.e. the community, auditors, fellow devs, FOSS, ...) with any of your heart (i.e. with your or your users' security), but lean _hard_ on your own understanding.
+* _Nothing_ is considered safe unless you have _personally_ verified it as such.
+* git gud
+* shut up and suffer
 
-[HelloUSDC - Simple cross-chain USDC sending application using CCTP](https://github.com/wormhole-foundation/hello-usdc)
+## Notable Solidity Repos
 
-### SDK Summary
-
-- Includes interfaces to interact with contracts in the Wormhole ecosystem ([src/interfaces](https://github.com/wormhole-foundation/wormhole-solidity-sdk/tree/main/src/interfaces))
-- Includes the base class ‘Base’ with helpers for common actions that will typically need to be done within ‘receiveWormholeMessages’:
-  - [`onlyWormholeRelayer()`](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/Base.sol#L9): Checking that msg.sender is the wormhole relayer contract
-    Sometimes, Cross-chain applications may be set up such that there is one ‘spoke’ contract on every chain, which sends messages to the ‘hub’ contract. If so, we’d ideally only want to allow messages to be sent from these spoke contracts. Included are helpers for this:
-    
-    - [`setRegisteredSender(uint16 sourceChain, bytes32 sourceAddress)`](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/Base.sol#L45): Setting the specified sender for ‘sourceChain’ to be ‘sourceAddress’
-    - [`isRegisteredSender(uint16 sourceChain, bytes32 sourceAddress)`](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/Base.sol#L30): Checking that the sender who requested the delivery is the registered address for that chain
-    
-    Look at test/Counter.t.sol for an example usage of Base
-    
-- Included are also:
-  - The ‘[TokenSender](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/TokenBase.sol#L24)’ and ‘[TokenReceiver](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/TokenBase.sol#L158)’ base classes with helpers for smart contracts that wish to send and receive tokens using Wormhole’s TokenBridge. See ‘[HelloToken](https://github.com/wormhole-foundation/hello-token)’ for example usage.
-  - The ‘[CCTPSender](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/CCTPBase.sol#L59)’ and ‘[CCTPReceiver](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/CCTPBase.sol#L177)’ base classes with helpers for smart contracts that wish to send and receive both tokens using Wormhole’s TokenBridge as well as USDC using CCTP. See ‘[HelloUSDC](https://github.com/wormhole-foundation/hello-usdc)’ for example usage.
-  - Or a combination of both - [CCTPAndTokenBase](https://github.com/wormhole-foundation/wormhole-solidity-sdk/blob/main/src/WormholeRelayer/CCTPAndTokenBase.sol).
-  - Helpers for setting up a local forge testing environment. See ‘[HelloWormhole](https://github.com/wormhole-foundation/hello-wormhole)’ for example usage.
-
-**Note: This code is meant to be used as starter / reference code. Feel free to modify for use in your contracts, and also make sure to audit any code used from here as part of your contracts before deploying to mainnet.**
+* [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts)
+* [Solmate](https://github.com/transmissions11/solmate) / [Solady](https://github.com/Vectorized/solady)
+* [Uniswap Permit2](https://github.com/Uniswap/permit2) + [explanation](https://github.com/dragonfly-xyz/useful-solidity-patterns/tree/main/patterns/permit2)

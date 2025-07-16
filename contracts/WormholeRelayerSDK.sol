@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 import "./interfaces/IWormholeReceiver.sol";
 import "./interfaces/IWormholeRelayer.sol";
-import "./Chains.sol";
+import "./constants/Chains.sol";
 import "./Utils.sol";
 
 import {Base} from "./WormholeRelayer/Base.sol";
